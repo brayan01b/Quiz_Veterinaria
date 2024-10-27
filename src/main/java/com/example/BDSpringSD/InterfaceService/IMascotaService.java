@@ -1,6 +1,7 @@
 package com.example.BDSpringSD.InterfaceService;
 
 import com.example.BDSpringSD.Model.Mascota;
+import com.example.BDSpringSD.Model.Propietario;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,5 +18,5 @@ public interface IMascotaService {
 
     public void eliminar (int id);
 
-
+    List<Mascota> obtenerTodosLosMascotas();
 }

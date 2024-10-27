@@ -17,7 +17,7 @@
             <h3 class="text-center" th:text="${cuerpo}"></h3>
             <div class="card-body">
 
-    <form th:action="@{/guardar}" th:object="${Masc}" method="post">
+    <form th:action="@{/guardarPro}" th:object="${Pro}" method="post">
 
         <input type="hidden" th:field="*{codigo}">
     <div class="form-group">
@@ -26,33 +26,21 @@
     </div>
        <br>
     <div class="form-group">
-        <label>Especie</label>
-        <input class="form-control" type="text" th:field="*{especie}" name="especie" required="true" placeholder="Ingrese la especie">
+        <label>Direccion</label>
+        <input class="form-control" type="text" th:field="*{direccion}" name="direccion" required="true" placeholder="Ingrese la direccion">
     </div>
     <br>
         <br>
         <div class="form-group">
-            <label>Raza</label>
-            <input class="form-control" type="text" th:field="*{raza}" name="raza" required="true" placeholder="Ingrese la raza">
+            <label>Telefono</label>
+            <input class="form-control" type="text" th:field="*{telefono}" name="telefono" required="true" placeholder="Ingrese el telefono">
         </div>
-        <br>
-        <br>
-        <div class="form-group">
-            <label>Fecha de nacimiento</label>
-            <input class="form-control" type="text" th:field="*{fecha_nacimiento}" name="fecha_nacimiento" required="true" placeholder="Ingrese la fecha de nacimiento">
-        </div>
-        <br>
-        <select class="form-control"  th:field="*{propietario}">
-            <option value="" disabled selected>Seleccione un Propietario</option>
-            <option th:each="propietario : ${propietarios}" th:value="${propietario.codigo}" th:text="${propietario.nombre}"></option>
-        </select>
         <br>
 
     <div>
         <button class="btn btn-success">Guardar</button>
-        <a class="btn btn-success" th:href="@{/listar}">Regresar</a>
+        <a class="btn btn-success" th:href="@{/listarPro}">Regresar</a>
     </div>
-
     </form>
     </div>
     </div>

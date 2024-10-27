@@ -26,7 +26,7 @@ public class PropietarioService implements IPropietarioService {
     }
 
     @Override
-    public void guardarDo(Propietario Pro) {
+    public void guardarPro(Propietario Pro) {
         repositorio.save(Pro);
     }
 
@@ -41,4 +41,9 @@ public class PropietarioService implements IPropietarioService {
         repositorio.deleteById(id);
 
     }
+    @Override
+    public List<Propietario> obtenerTodosLosPropietarios() {
+        return repositorio.findAll();
+    }
+
 }

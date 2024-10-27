@@ -31,22 +31,22 @@ public class PropietarioController {
             return "indexDo";
         }
 
-        @GetMapping("/nuevoDo")
+        @GetMapping("/nuevoPro")
         public String formAgregarPropietario(Model model){
 
             model.addAttribute("titulo", "Nuevo");
             model.addAttribute("cuerpo", "USUARIO NUEVO");
 
             model.addAttribute("Pro",new Propietario());
-            return "nuevo";
+            return "nuevoPro";
         }
 
         @PostMapping("/guardarPro")
         public String guardarPropietario(@ModelAttribute Propietario Pro){
 
-            service.guardarDo(Pro);
+            service.guardarPro(Pro);
 
-            return "redirect:/listar";
+            return "redirect:/listarPro";
         }
 
 

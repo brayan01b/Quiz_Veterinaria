@@ -11,11 +11,12 @@ public interface IPropietarioService {
 
     public List<Propietario> listarPro();
 
-    public void guardarDo(Propietario Pro);
+    public void guardarPro(Propietario Pro);
 
     public Optional<Propietario> editarPro(int id);
 
     public void eliminarPro (int id);
 
 
+    List<Propietario> obtenerTodosLosPropietarios();
 }

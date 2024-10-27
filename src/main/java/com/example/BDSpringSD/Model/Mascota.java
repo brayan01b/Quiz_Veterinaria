@@ -22,7 +22,10 @@ public class Mascota {
     private String especie;
 
     private String raza;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fechaNacimiento;
+    private Date fecha_nacimiento;
+
+    @ManyToOne
+    @JoinColumn(name="Id_Propietario")
+    private Propietario propietario;
 }

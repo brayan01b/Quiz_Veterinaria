@@ -2,6 +2,8 @@ package com.example.BDSpringSD.Controller;
 
 import com.example.BDSpringSD.InterfaceService.IMascotaService;
 import com.example.BDSpringSD.Model.Mascota;
+import com.example.BDSpringSD.Service.PropietarioService;
+import com.example.BDSpringSD.Service.VeterinariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping
 public class MascotaController {
-
+    private VeterinariosService veterinariosService;
+    @Autowired
+    private PropietarioService propietarioService;
     @Autowired
     private IMascotaService service;
 
@@ -20,6 +24,7 @@ public class MascotaController {
 
         model.addAttribute("titulo","Spring DB");
         model.addAttribute("cuerpo","LISTA DE MASCOTAS");
+        model.addAttribute("propietarios", propietarioService.obtenerTodosLosPropietarios());
 
         model.addAttribute("datos", service.listar());
         return "index";
@@ -30,6 +35,7 @@ public class MascotaController {
 
         model.addAttribute("titulo", "Nuevo");
         model.addAttribute("cuerpo", "MASCOTA NUEVA");
+        model.addAttribute("propietarios", propietarioService.obtenerTodosLosPropietarios());
 
         model.addAttribute("Masc",new Mascota());
         return "nuevo";
@@ -47,6 +53,7 @@ public class MascotaController {
     @GetMapping("/editar/{id}")
     public String editarMascota(@PathVariable("id") int id, Model model){
 
+        model.addAttribute("propietarios", propietarioService.obtenerTodosLosPropietarios());
 
         model.addAttribute("Masc", service.editar(id));
 

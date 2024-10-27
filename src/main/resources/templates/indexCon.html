@@ -9,30 +9,35 @@
 </head>
 <body>
 <div class="container mt-4">
-<h3 class="text-center mb-4" th:text="${cuerpo}"> </h3>
+    <h3 class="text-center mb-4" th:text="${cuerpo}"> </h3>
+
 
 <table class="table">
     <thead class="table-warning">
     <tr>
         <th>Codigo</th>
-        <th>Nombre</th>
-        <th>Direccion</th>
-        <th>Telefono</th>
+        <th>mascota</th>
+        <th>veterinario</th>
+        <th>fecha_consulta</th>
+        <th>motivo</th>
+        <th>diagnostico</th>
         <th>Opciones</th>
-
     </tr>
     </thead>
 
     <tbody th:each="temList: ${datos}">
     <tr>
+
         <td th:text="${temList.codigo}"></td>
-        <td th:text="${temList.nombre}"></td>
-        <td th:text="${temList.direccion}"></td>
-        <td th:text="${temList.telefono}"></td>
+        <td th:text="${temList.mascota != null ? temList.mascota.nombre : 'Sin mascota asignado'}"></td>
+        <td th:text="${temList.veterinario != null ? temList.veterinario.nombre : 'Sin veterinario asignado'}"></td>
+        <td th:text="${temList.fecha_consulta}"></td>
+        <td th:text="${temList.motivo}"></td>
+        <td th:text="${temList.diagnostico}"></td>
         <td>
 
-            <a class="btn btn-warning" th:href="@{/editarPro/} + ${temList.codigo}" >Editar</a>
-            <a class="btn btn-danger" th:href="@{/eliminarPro/} + ${temList.codigo}" onclick="return confirm('Estas seguro de eliminar');">Eliminar</a>
+            <a class="btn btn-warning" th:href="@{/editarCon/} + ${temList.codigo}" >Editar</a>
+            <a class="btn btn-danger" th:href="@{/eliminarCon/} + ${temList.codigo}" onclick="return confirm('Estas seguro de eliminar');">Eliminar</a>
 
         </td>
 
