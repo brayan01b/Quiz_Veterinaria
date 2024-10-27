@@ -11,13 +11,6 @@ import java.util.Date;
 @Table(name = "Consultas")
 public class Consultas {
 
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
 
     public Veterinarios getVeterinario() {
         return veterinario;
@@ -72,7 +65,7 @@ public class Consultas {
 
     private int codigo;
 
-    private String raza;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_consulta;
 
